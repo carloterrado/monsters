@@ -1,4 +1,4 @@
-// import { Component } from "react";
+
 import './search-box.css';
 
 const SearchBox = ({ searchMonster, placeholder, type }) =>

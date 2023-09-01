@@ -1,12 +1,12 @@
 
 import CardList from './components/card-list/CardList.component';
 import SearchBox from './components/search-box/SearchBox.component';
-import './App.css';
+
 
 import { useState, useEffect } from "react";
 
 
-const getJSON =  function (url, errorMsg = 'Something went wrong') {
+const getJSON = function (url, errorMsg = 'Something went wrong') {
   return fetch(url).then(response => {
     if (!response.ok) throw new Error(`${errorMsg} (${response.status})`);
 
@@ -22,14 +22,12 @@ const App = () => {
   const [searchIDValue, setIDSearchValue] = useState(searchValue);
   const [monsters, setMonsters] = useState([]);
   const [filteredMonster, setFilteredMonster] = useState(monsters);
- 
+
   const searchMonster = event => setSearchValue(event.target.value);
   const searchMonsterID = event => setIDSearchValue(event.target.value);
 
   useEffect(() => {
-
     getJSON('https://pokeapi.co/api/v2/pokemon?limit=200').then(jSONResults => jSONResults.results).then(pokemons => pokemons.map(pokemon => getJSON(`https://pokeapi.co/api/v2/pokemon/${pokemon.name}/`))).then(arrPokemon => Promise.all(arrPokemon)).then(monsters => setMonsters(monsters));
-
   }, []);
 
 
@@ -44,17 +42,16 @@ const App = () => {
   }, [monsters, searchIDValue]);
 
 
-
   return (
-    <div className="p-2 sm:p-8 pt-4 ">
-      <div className='flex flex-col md:flex-row gap-6 justify-between items-center mb-8 w-[85vw] mx-auto'>
-        <h1 className='text-4xl text-white tracking-widest font-bigelow font-extrabold'>Pokemon Monsters</h1>
-        <SearchBox searchMonster={searchMonsterID} placeholder={'search pokemon id'} type={'number'}/>
-        <SearchBox searchMonster={searchMonster} placeholder={'search pokemon name'} type={'search'}/>
+    <div className="p-4  w-full min-h-[100vh] sm:p-8  body ">
+
+      <div className='flex flex-col md:flex-row gap-6 justify-between items-center mb-8 w-[85vw] mx-auto '>
+        <h1 className='text-4xl text-white tracking-widest font-bigelow font-extrabold '>Pokemon Monsters</h1>
+        <SearchBox searchMonster={searchMonsterID} placeholder={'search pokemon id'} type={'number'} />
+        <SearchBox searchMonster={searchMonster} placeholder={'search pokemon name'} type={'search'} />
       </div>
 
       <CardList monsters={filteredMonster} />
-      {/* <CardList monsters={displayMonster(monsters, searchValue)} /> */}
     </div>
   );
 }

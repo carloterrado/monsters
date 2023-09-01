@@ -1,10 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-body {
-  margin: 0;
-  padding: 0;
+@import url('https://fonts.googleapis.com/css2?family=Bigelow+Rules&display=swap');
+.body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -15,5 +13,9 @@ body {
     rgba(7, 27, 82, 1) 0%,
     rgba(0, 128, 128, 1) 100%
   );
-  text-align: center;
+
+}
+body{
+
+  max-width: 100vw;
 }
