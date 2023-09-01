@@ -1,16 +1,15 @@
 
-import { Component } from "react";
+// import { Component } from "react";
+import CardContainer from "../card-container/CardContainer.component";
+import './card-list.css';
 
-class CardList extends Component {
+const CardList = ({ monsters }) =>
+(
+    <div className="card-list grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {monsters.map((monster) => <CardContainer key={monster.id} monster={monster} />)}
+    </div>
+);
 
-    render() {
-        const { monsters } = this.props;
-        return (
-            <div>
-                {monsters.map(monster => <h1 className="text-sm" key={monster.id}>{monster.name}</h1>)}
-            </div>
-        );
-    }
-}
+
 
 export default CardList;
