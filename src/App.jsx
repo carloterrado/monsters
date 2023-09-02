@@ -18,15 +18,6 @@ const filterMonster = (monsters, searchValue, key) => monsters.filter(monster =>
 
 const App = () => {
 
-  useEffect(() => {
-    const link = document.querySelector("link[rel~='icon']");
-    if (!link) {
-      const newLink = document.createElement('link');
-      newLink.rel = 'icon';
-      document.getElementsByTagName('head')[0].appendChild(newLink);
-    }
-    link.href = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/25.svg';
-  }, []);
 
   const [searchValue, setSearchValue] = useState('');
   const [searchIDValue, setIDSearchValue] = useState(searchValue);
