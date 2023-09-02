@@ -37,7 +37,7 @@ const App = () => {
   const searchMonsterID = event => setIDSearchValue(event.target.value);
 
   useEffect(() => {
-    getJSON('https://pokeapi.co/api/v2/pokemon?limit=50').then(jSONResults => jSONResults.results).then(pokemons => pokemons.map(pokemon => getJSON(`https://pokeapi.co/api/v2/pokemon/${pokemon.name}/`))).then(arrPokemon => Promise.all(arrPokemon)).then(monsters => setMonsters(monsters));
+    getJSON('https://pokeapi.co/api/v2/pokemon?limit=100').then(jSONResults => jSONResults.results).then(pokemons => pokemons.map(pokemon => getJSON(`https://pokeapi.co/api/v2/pokemon/${pokemon.name}/`))).then(arrPokemon => Promise.all(arrPokemon)).then(monsters => setMonsters(monsters));
   }, []);
 
 
