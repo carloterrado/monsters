@@ -2,8 +2,9 @@
 import './card-container.css';
 
 const CardContainer = ({ monster }) => {
-    const { name, id, sprites: { front_default }, types, base_experience } = monster;
-   
+    const { name, id, sprites, types, base_experience } = monster;
+    const {front_default} = sprites.other.dream_world
+
     const attributes = {
         water: '💧', fire: '🔥', grass: '🌿', poison: '💀', flying: '🦅', bug: '🐞', normal: '🐽', electric: '⚡', ground: '🌋', fairy: '🧚‍♀️', fighting: '🥊', psychic: '🔮', rock: '💎', steel: '🦾', ice: '🧊', ghost: '👻', dragon: '🐲', dark: '🌑',
     }
@@ -16,7 +17,7 @@ const CardContainer = ({ monster }) => {
     return (
         <div className="card-container text-start ">
             <h1 className="font-semibold text-2xl sm:text-4xl text-center "> {name}</h1>
-            <img src={front_default} alt={`Pokemon ${name}`} />
+            <img src={front_default} alt={`Pokemon ${name}`} className='h-64'/>
             <p><em className='font-semibold text-sm flex justify-between'>
                 <span>{`#${(id + '').padStart(4, '0')}`}</span> /
                 <span>{pokemonTypes}</span> /
