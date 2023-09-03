@@ -10,7 +10,7 @@ const CardContainer = ({ monster }) => {
     return (
         <div className="card-container text-start ">
             <h1 className="font-semibold text-2xl  text-center "> {name}</h1>
-            <img src={front_default} alt={`Pokemon ${name}`} className=' h-52 sm:h-44' />
+            <img src={front_default} alt={`Pokemon ${name}`} className=' h-60 sm:h-44' />
             <p><em className='font-semibold text-sm flex justify-between'>
                 <span>{`#${(id + '').padStart(4, '0')}`}</span> /
                 
